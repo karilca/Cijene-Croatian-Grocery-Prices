@@ -15,7 +15,7 @@ if [ $? -eq 0 ]; then
     echo "Crawler completed successfully. Starting import for date: $CURRENT_DATE"
     
     # Run the import with current date
-    docker-compose exec api uv run -m service.db.import /app/data/$CURRENT_DATE
+    docker-compose exec -T api uv run -m service.db.import /app/data/$CURRENT_DATE
     
     if [ $? -eq 0 ]; then
         echo "Import completed successfully at $(date)"
