@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
             <p className="text-sm sm:text-base text-gray-600">{t('home.stats.stores')}</p>
           </div>
           <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 sm:col-span-2 lg:col-span-1">
-            <h3 className="text-xl sm:text-2xl font-bold text-purple-600 mb-2">15+</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-purple-600 mb-2">10+</h3>
             <p className="text-sm sm:text-base text-gray-600">{t('home.stats.chains')}</p>
           </div>
         </div>

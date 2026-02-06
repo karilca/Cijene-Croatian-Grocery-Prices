@@ -48,14 +48,19 @@ export const ChainDetails: React.FC<ChainDetailsProps> = ({ chainCode: propChain
   // Handle store selection from URL param
   useEffect(() => {
     const storeId = searchParams.get('id');
-    if (storeId && stores && !selectedStore) {
+    if (storeId) {
+      if (stores && !selectedStore) {
       const found = stores.find(s => (s.id || s.code || `${s.chain_code}-${s.address}`) === storeId);
       if (found) {
         setSelectedStore(found);
         setShowDetails(true);
       }
     }
-  }, [searchParams, stores, selectedStore]);
+    } else if (showDetails) {
+      setShowDetails(false);
+      setSelectedStore(null);
+    }
+  }, [searchParams, stores, selectedStore, showDetails]);
 
   // Filter and sort stores
   const filteredStores = useMemo(() => {
