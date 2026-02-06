@@ -219,7 +219,9 @@ export const StoreDetails: React.FC<StoreDetailsProps> = ({
             </div>
 
             <div className="bg-gray-50 p-4 rounded-lg text-center">
-              <div className="text-2xl font-bold text-gray-900">{store.id}</div>
+              <div className="text-2xl font-bold text-gray-900">
+                {store.id || store.code || `${store.chain_code}-${store.address}`}
+              </div>
               <div className="text-sm text-gray-600">{t('storeDetails.storeId')}</div>
             </div>
 
