@@ -182,7 +182,6 @@ export const translations = {
         'card.products': 'Products',
         'card.lastUpdated': 'Last updated: {date}',
         'card.viewDetails': 'View Details',
-        'card.viewStores': 'View Stores',
 
         // Archives Page
         'archives.title': 'Price Archives',
@@ -334,7 +333,7 @@ export const translations = {
         'chainDetails.stores': 'Stores',
         'chainDetails.products': 'Products',
         'chainDetails.lastUpdated': 'Last Updated',
-        'chainDetails.viewAllStores': 'View All Stores',
+        'chainDetails.searchStores': 'Search Stores',
         'chainDetails.browseProducts': 'Browse Products',
         'chainDetails.filterStores': 'Filter Stores',
         'chainDetails.city': 'City',
@@ -663,7 +662,6 @@ export const translations = {
         'card.products': 'Proizvodi',
         'card.lastUpdated': 'Zadnje ažurirano: {date}',
         'card.viewDetails': 'Vidi detalje',
-        'card.viewStores': 'Vidi trgovine',
 
         // Archives Page
         'archives.title': 'Arhiva cijena',
@@ -815,7 +813,7 @@ export const translations = {
         'chainDetails.stores': 'Trgovine',
         'chainDetails.products': 'Proizvodi',
         'chainDetails.lastUpdated': 'Zadnje ažurirano',
-        'chainDetails.viewAllStores': 'Vidi sve trgovine',
+        'chainDetails.searchStores': 'Pretraži trgovine',
         'chainDetails.browseProducts': 'Pregledaj proizvode',
         'chainDetails.filterStores': 'Filtriraj trgovine',
         'chainDetails.city': 'Grad',

@@ -50,12 +50,12 @@ export const ChainDetails: React.FC<ChainDetailsProps> = ({ chainCode: propChain
     const storeId = searchParams.get('id');
     if (storeId) {
       if (stores && !selectedStore) {
-      const found = stores.find(s => (s.id || s.code || `${s.chain_code}-${s.address}`) === storeId);
-      if (found) {
-        setSelectedStore(found);
-        setShowDetails(true);
+        const found = stores.find(s => (s.id || s.code || `${s.chain_code}-${s.address}`) === storeId);
+        if (found) {
+          setSelectedStore(found);
+          setShowDetails(true);
+        }
       }
-    }
     } else if (showDetails) {
       setShowDetails(false);
       setSelectedStore(null);
@@ -126,9 +126,6 @@ export const ChainDetails: React.FC<ChainDetailsProps> = ({ chainCode: propChain
 
   // Handle back from details
   const handleBackFromDetails = useCallback(() => {
-    setShowDetails(false);
-    setSelectedStore(null);
-
     // Remove store ID from URL
     setSearchParams(prev => {
       prev.delete('id');
@@ -199,44 +196,44 @@ export const ChainDetails: React.FC<ChainDetailsProps> = ({ chainCode: propChain
 
       {/* Chain Header */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex-1">
+        <div className="flex flex-col">
+          <div className="mb-4">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">{chain.name}</h1>
-            <p className="text-lg text-gray-600 mb-4">
+            <p className="text-lg text-gray-600">
               Chain Code: <span className="font-mono font-semibold">{chain.code.toUpperCase()}</span>
             </p>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-              <div className="bg-primary-50 p-4 rounded-lg text-center">
-                <p className="text-2xl font-bold text-primary-600">
-                  {chain.stores_count.toLocaleString('hr-HR')}
-                </p>
-                <p className="text-sm text-primary-700">{t('chainDetails.stores')}</p>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="bg-primary-50 p-4 rounded-lg text-center">
+              <p className="text-2xl font-bold text-primary-600">
+                {chain.stores_count.toLocaleString('hr-HR')}
+              </p>
+              <p className="text-sm text-primary-700">{t('chainDetails.stores')}</p>
+            </div>
 
-              <div className="bg-green-50 p-4 rounded-lg text-center">
-                <p className="text-2xl font-bold text-green-600">
-                  {chain.products_count.toLocaleString('hr-HR')}
-                </p>
-                <p className="text-sm text-green-700">{t('chainDetails.products')}</p>
-              </div>
+            <div className="bg-green-50 p-4 rounded-lg text-center">
+              <p className="text-2xl font-bold text-green-600">
+                {chain.products_count.toLocaleString('hr-HR')}
+              </p>
+              <p className="text-sm text-green-700">{t('chainDetails.products')}</p>
+            </div>
 
-              <div className="bg-purple-50 p-4 rounded-lg text-center">
-                <p className="text-sm font-semibold text-purple-600">{t('chainDetails.lastUpdated')}</p>
-                <p className="text-xs text-purple-700">
-                  {formatLastUpdated(chain.last_updated)}
-                </p>
-              </div>
+            <div className="bg-purple-50 p-4 rounded-lg text-center">
+              <p className="text-sm font-semibold text-purple-600">{t('chainDetails.lastUpdated')}</p>
+              <p className="text-xs text-purple-700">
+                {formatLastUpdated(chain.last_updated)}
+              </p>
             </div>
           </div>
 
-          <div className="flex gap-3 mt-4 lg:mt-0">
-            <Link to={`/chains/${chain.code}/stores`}>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/stores">
               <Button variant="primary">
-                {t('chainDetails.viewAllStores')}
+                {t('chainDetails.searchStores')}
               </Button>
             </Link>
-            <Link to={`/products?chain=${chain.code}`}>
+            <Link to="/products">
               <Button variant="outline">
                 {t('chainDetails.browseProducts')}
               </Button>

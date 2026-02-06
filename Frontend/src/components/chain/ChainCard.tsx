@@ -76,8 +76,8 @@ export const ChainCard: React.FC<ChainCardProps> = ({
           )}
         </div>
 
-        <div className="flex gap-2 mt-4">
-          <Link to={chain.code ? `/chains/${chain.code}` : '#'} className="flex-1">
+        <div className="mt-4">
+          <Link to={chain.code ? `/chains/${chain.code}` : '#'}>
             <Button
               className="w-full"
               variant="primary"
@@ -87,15 +87,6 @@ export const ChainCard: React.FC<ChainCardProps> = ({
             </Button>
           </Link>
 
-          <Link to={chain.code ? `/chains/${chain.code}/stores` : '#'} className="flex-1">
-            <Button
-              className="w-full"
-              variant="outline"
-              disabled={!chain.code}
-            >
-              {t('card.viewStores')}
-            </Button>
-          </Link>
         </div>
       </div>
     </Card>
